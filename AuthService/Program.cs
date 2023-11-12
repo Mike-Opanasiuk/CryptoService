@@ -9,6 +9,8 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 using Shared.CustomMiddlewares.ExceptionHandlingMiddleware;
+using Infrastructure.UnitOfWork.Abstract;
+using Infrastructure.UnitOfWork;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -21,6 +23,7 @@ builder.Services.AddIdentity<UserEntity, RoleEntity>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
 builder.Services.AddBearer(builder.Configuration.GetValue<string>("Jwt:Secret"));
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 builder.Services.AddScoped<JwtService>();
 
