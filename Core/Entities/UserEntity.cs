@@ -9,4 +9,7 @@ public class UserEntity : IdentityUser<Guid>, IEntity
     public DateTime UpdatedAt { get; set; }
     public string Name { get; set; }
     public string Surname { get; set; }
+
+    public IEnumerable<CurrencyEntity> Currencies { get; set; }
+    public IEnumerable<OrderEntity> Orders { get; set; }
 }

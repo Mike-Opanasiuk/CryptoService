@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace OrderService.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("/api/[controller]")]
     public class WeatherForecastController : ControllerBase
     {
         private static readonly string[] Summaries = new[]
@@ -29,6 +29,13 @@ namespace OrderService.Controllers
                 Summary = Summaries[Random.Shared.Next(Summaries.Length)]
             })
             .ToArray();
+        }
+
+        [HttpPost("add")]
+        public void SomeAdd([FromBody] string value)
+        {
+            Console.WriteLine(value);
+            Console.WriteLine(value);
         }
     }
 }
