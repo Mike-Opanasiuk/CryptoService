@@ -1,8 +1,8 @@
 using Application;
 using Application.Features.AccountFeatures.Services;
 using AuthService;
-using AuthService.Extensions;
 using AuthService.Extentions;
+using Shared.Extensions;
 using Core.Entities;
 using Infrastructure;
 using Microsoft.AspNetCore.Identity;
@@ -21,6 +21,7 @@ builder.Services.AddIdentity<UserEntity, RoleEntity>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
 builder.Services.AddBearer(builder.Configuration.GetValue<string>("Jwt:Secret"));
+
 builder.Services.AddScoped<JwtService>();
 
 builder.Services.AddMediatR(conf => conf.RegisterServicesFromAssembly(typeof(MediatrAssemblyReference).Assembly));

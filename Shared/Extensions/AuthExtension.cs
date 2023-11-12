@@ -1,8 +1,9 @@
 ﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 
-namespace AuthService.Extensions;
+namespace Shared.Extensions;
 
 public static partial class ServiceCollectionExtensions
 {
