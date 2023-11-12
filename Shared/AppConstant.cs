@@ -3,6 +3,12 @@ namespace Shared;
 
 public class AppConstant
 {
+    public record General
+    {
+        public const int DefaultPage = 1;
+        public const int DefaultPerPage = 12;
+    }
+
     public record Claims
     {
         public const string Id = "id";
@@ -37,5 +43,18 @@ public class AppConstant
         /// 7 days
         /// </summary>
         public static readonly TimeSpan Longer = TimeSpan.FromDays(7);
+    }
+
+    public record SortOrder
+    {
+        public const string Asc = "asc";
+        public const string Desc = "desc";
+
+        public record By
+        {
+            public const string Price = "price";
+            public const string Date = "date";
+            public const string Name = "name";
+        }
     }
 }
